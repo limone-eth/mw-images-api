@@ -10,7 +10,7 @@ export class AuthRoutes extends AbstractRoutes {
         return [
             new Route(MethodRoutes.POST, '/signup', {'v1': new SignupV1()}),
             new Route(MethodRoutes.POST, '/login', {'v1': new LoginV1()}),
-            new Route(MethodRoutes.POST, '/logout', {'v1': new LogoutV1()}, 'student')
+            new Route(MethodRoutes.POST, '/logout', {'v1': new LogoutV1()}, 'user')
         ];
     }
 

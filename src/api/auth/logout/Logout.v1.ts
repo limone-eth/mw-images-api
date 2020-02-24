@@ -11,8 +11,11 @@ export class LogoutV1 extends RequestController {
     async logout(req: Request): Promise<null> {
         const revokedTokens: string = req.user.revoked_tokens;
         const r: string[] = (revokedTokens) ? JSON.parse(revokedTokens) : [];
-        r.push(req.authInfo.token.id);
-        const revTokens = JSON.stringify(revokedTokens) !== 'null' ? JSON.stringify(revokedTokens) : null;
+        let revTokens = 'null';
+        if (r) {
+            r.push(req.authInfo.token.id);
+            revTokens = JSON.stringify(revokedTokens) !== 'null' ? JSON.stringify(revokedTokens) : null;
+        }
         const user = await User.findOne(req.user.id);
         user.revoked_tokens = revTokens;
         await user.save();
