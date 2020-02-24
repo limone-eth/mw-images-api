@@ -6,11 +6,11 @@
   "scripts": {
     "prebuild": "rm -rf dist/* && tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
+    "prestart": "npm run build && cp -rf database.sqlite dist/database.sqlite",
+    "start": "ts-node .",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
     "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert",
-    "prestart": "npm run build",
-    "start": "ts-node .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-with-node": "node dist/src/index.js"
   },

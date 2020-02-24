@@ -21,6 +21,7 @@
     "src/custom.d.ts"
   ],
   "include": [
+    "./database.sqlite",
     "src/**/*"
   ]
 }
