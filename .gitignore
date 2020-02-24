@@ -5,6 +5,5 @@ node_modules/
 bash/
 build/
 dist/
-database.sqlite
 
 .DS_Store
