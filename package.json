@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "prebuild": "rm -rf dist/* && tslint -c tslint.json -p tsconfig.json --fix",
-    "build": "tsc && cp -rf database.sqlite dist/database.sqlite",
+    "build": "tsc && cp -rf package.json dist/package.json && cp -rf database.sqlite dist/database.sqlite",
     "prestart": "npm run build",
     "start": "ts-node .",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
