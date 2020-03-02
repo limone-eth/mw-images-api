@@ -5,8 +5,8 @@ import {connect} from './db/db';
 import "reflect-metadata";
 import {ErrorHandler} from "./components/ErrorHandler";
 import {PassportComponent} from "./components/Passport"
-
 connect(); // initialize DB Connection
+
 
 const passport = new PassportComponent();
 

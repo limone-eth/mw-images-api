@@ -5,7 +5,8 @@ import * as Joi from "joi";
 import {XError} from "../../../routing-utilities/XError";
 import {Authentication} from "../../../routing-utilities/Authentication";
 import * as bcrypt from "bcrypt";
-
+import * as fs from "fs";
+import * as path from "path";
 export class SignupV1 extends RequestController {
     validate?: Joi.JoiObject = Joi.object().keys({
         body: {
@@ -37,6 +38,7 @@ export class SignupV1 extends RequestController {
         newUser.seed = Math.floor(Math.random() * 100) + "";
         await newUser.save();
         const u = await User.findOne(newUser.id);
+        await fs.mkdirSync(path.resolve() + '/images/' + u.id);
         return {
             authentication: {
                 access_token: u.genToken()

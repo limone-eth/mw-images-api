@@ -1,7 +1,7 @@
 import {
     BaseEntity, BeforeInsert,
     Column,
-    Entity,
+    Entity, OneToMany,
     PrimaryGeneratedColumn,
 } from "typeorm";
 import * as shortid from "shortid";
@@ -10,6 +10,7 @@ import * as bcrypt from "bcrypt"
 import {XLoDash} from "../../utils/XLoDash";
 import {XError} from "../../routing-utilities/XError";
 import {CustomError} from "../../routing-utilities/CustomError";
+import {Image} from "./Image.model";
 @Entity('users')
 export class User extends BaseEntity{
 
@@ -40,21 +41,16 @@ export class User extends BaseEntity{
     @Column()
     view: boolean;
 
+    @OneToMany(type => Image, image => image.user)
+    images: Image[];
+
     /**
      * ERRORS
      */
     static readonly CRYPTING_ERROR = new CustomError(1, 'crypting_error');
     static readonly ALREADY_EXISTENT_EMAIL_ERROR = new CustomError(2, 'email_already_exists');
     static readonly INVALID_CREDENTIALS_ERROR = new CustomError(3, 'invalid_credentials');
-    static readonly WRONG_PASSWORD_ERROR = new CustomError(4, 'wrong_password');
-    static readonly USER_WITH_EMAIL_NOT_FOUND_ERROR = new CustomError(5, 'user_with_email_not_found');
-    static readonly RESET_PWD_EMAIL_NOT_SENT_ERROR = new CustomError(6, 'reset_pwd_email_not_sent');
-    static readonly INVALID_TOKEN_RESET_PASSWORD_ERROR = new CustomError(7, 'invalid_token_to_reset_password');
-    static readonly NO_USER_ID_INVALID_TOKEN_ERROR = new CustomError(8, 'no_user_id_invalid_token_to_reset_password');
-    static readonly RESET_PWD_MALFORMED_ERROR = new CustomError(9, 'reset_pwd_malformed_reset');
-    static readonly RESET_PWD_NULL_ERROR = new CustomError(10, 'reset_pwd_is_null');
-    static readonly ID_PASSWORD_NOT_MATCH_ERROR = new CustomError(11, 'id_password_not_matching');
-    static readonly UPDATE_USER_ERROR_ERROR = new CustomError(12, 'update_user_error');
+    static readonly CANNOT_RETRIEVE_USER_PROFILE_ERROR = new CustomError(4, 'cannot_retrieve_user_profile_error');
 
     /*
      * HOOKS

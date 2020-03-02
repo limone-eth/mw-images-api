@@ -11,21 +11,21 @@ export class GetById extends RequestController {
 
     async getById(req: Request): Promise<User> {
         // Each user can only retrieve its own profile
-        if((req.user.id).toString() === req.params.id){
-            const id = req.user.id
+        if ((req.user.id).toString() === req.params.id) {
+            const id = req.user.id;
             const user = await User.findOne({
-                    where: {
-                        id,
-                        role: 'user' }
+                where: {
+                    id,
+                    role: 'user'
+                }
             });
-            if(!user)
+            if (!user)
                 throw new XError(User.INVALID_CREDENTIALS_ERROR, 403, "Invalid credentials");
             else
                 return user;
 
-        }
-        else{
-            throw new XError(User.INVALID_CREDENTIALS_ERROR, 403, "Invalid credentials");
+        } else {
+            throw new XError(User.CANNOT_RETRIEVE_USER_PROFILE_ERROR, 403, "Cannot retrieve profile of another user");
         }
     };
 
