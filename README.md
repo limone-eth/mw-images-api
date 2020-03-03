@@ -45,4 +45,50 @@ ___
 Endpoint: POST /auth/logout
 
 Response: /
+
+## Users
+### Retrieve User Profile
+
+Endpoint: GET /users
+
+Response:
+```json
+[
+  {
+    "id: "integer",
+    "first_name": "string",
+    "last_name": "string",
+    "email": "string",
+    "images": [
+      {
+        "id": "integer",
+        "key": "string",
+        "title": "string"
+      }
+    ]
+  }
+]
+```
 ___
+### Retrieve Users List
+
+Endpoint: GET /users/:id
+
+Response:
+```json
+{
+  "id: "integer",
+  "first_name": "string",
+  "last_name": "string",
+  "email": "string",
+  "images": [
+    {
+      "id": "integer",
+      "key": "string",
+      "title": "string"
+    }
+  ]
+}
+```
+___
+## Images
