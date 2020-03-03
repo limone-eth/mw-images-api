@@ -5,8 +5,6 @@
 
 * :cop: means that the endpoint relates only to objects belonging to the user (e.g., you cannot download images that does not belong to you)
 
-***
-
 ## Auth
 #### Signup
 
@@ -95,17 +93,7 @@ Response: user object including the list of images belonging to him
   "id": "integer",
   "first_name": "string",
   "last_name": "string",
-  "email": "string",
-  "images": [
-    {
-      "id": "integer",
-      "key": "string",
-      "title": "string"
-    }, 
-    {
-      "...": "..."
-    }
-  ]
+  "email": "string"
 }
 ```
 ___
