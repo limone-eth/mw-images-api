@@ -1,7 +1,7 @@
 # API Docs
 
 ## :exclamation: Important to know
-* :no_entry_sign: means that the endpoint is authenticated, this means that the user needs to include the Bearer token in the header field Authorization
+* :no_entry_sign: means that the endpoint is authenticated, this means that the user needs to include the Bearer token in the header field "Authorization"
 
 * :cop: means that the endpoint relates only to objects belonging to the user (e.g., you cannot download images that does not belong to you)
 
