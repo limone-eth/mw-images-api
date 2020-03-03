@@ -1,6 +1,6 @@
 # API Docs
 ## Auth
-* Signup
+#### Signup
 
 Endpoint: POST /auth/signup
 
@@ -11,3 +11,32 @@ last_name: string
 email: string (email format)
 password: string (min 8 chars)
 ```
+Response:
+```json
+authentication: {
+  token: string
+},
+user: {
+  id: integer
+}
+```
+___
+### Login
+
+Endpoint: POST /auth/login
+
+Body: 
+```json
+email: string
+password: string
+```
+Response:
+```json
+authentication: {
+  "token": "string"
+},
+user: {
+  "id": "integer"
+}
+```
+___
