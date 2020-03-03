@@ -54,8 +54,6 @@ ___
 
 Endpoint: POST /auth/logout
 
-Response: /
-
 ## Users
 #### Retrieve User Profile :no_entry_sign: :cop:
 
