@@ -14,10 +14,10 @@ password: string (min 8 chars)
 Response:
 ```json
 authentication: {
-  token: string
+  "token": "string"
 },
 user: {
-  id: integer
+  "id": "integer"
 }
 ```
 ___
