@@ -1,4 +1,12 @@
 # API Docs
+
+## :exclamation: Important to know
+* :no_entry_sign: means that the endpoint is authenticated, this means that the user needs to include the Bearer token in the header field Authorization
+
+* :cop: means that the endpoint relates only to objects belonging to the user (e.g., you cannot download images that does not belong to you)
+
+***
+
 ## Auth
 #### Signup
 
@@ -44,14 +52,14 @@ user: {
 }
 ```
 ___
-#### Logout
+#### Logout :no_entry_sign:
 
 Endpoint: POST /auth/logout
 
 Response: /
 
 ## Users
-#### Retrieve User Profile
+#### Retrieve User Profile :no_entry_sign: :cop:
 
 Endpoint: GET /users
 
@@ -77,7 +85,7 @@ Response: a list of users objects with their images
 ]
 ```
 ___
-#### Retrieve Users List
+#### Retrieve Users List :no_entry_sign:
 
 Endpoint: GET /users/:id
 
@@ -101,8 +109,8 @@ Response: user object including the list of images belonging to him
 }
 ```
 ___
-## Images
-#### Upload Image
+## Images 
+#### Upload Image :no_entry_sign:
 
 Endpoint: POST /images
 
@@ -128,7 +136,7 @@ Response: array of images belonging to the user
 ]
 ```
 ___
-#### Retrieve Images List
+#### Retrieve Images List :no_entry_sign: :cop:
 
 Endpoint: GET /images
 
@@ -154,7 +162,7 @@ Response: array of images belonging to the user
 ]
 ```
 ___
-#### Update Image
+#### Update Image :no_entry_sign: :cop:
 
 Endpoint: PUT /images/:id
 
@@ -179,7 +187,7 @@ Response: array of images belonging to the user (including the updated one)
 ]
 ```
 ___
-#### Delete Image
+#### Delete Image :no_entry_sign: :cop:
 
 Endpoint: DELETE /images/:id
 
@@ -197,7 +205,7 @@ Response: array of images belonging to the user (not including the deleted one)
 ]
 ```
 ___
-#### Download Image
+#### Download Image :no_entry_sign: :cop:
 
 Endpoint: GET /images/:id
 
