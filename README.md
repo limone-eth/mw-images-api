@@ -40,3 +40,9 @@ user: {
 }
 ```
 ___
+### Logout
+
+Endpoint: POST /auth/logout
+
+Response: /
+___
