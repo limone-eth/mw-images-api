@@ -7,9 +7,9 @@ Endpoint: POST /auth/signup
 Body: 
 ```json
 {
-  "first_name": "string"
-  "last_name": "string"
-  "email": "string (email format)"
+  "first_name": "string",
+  "last_name": "string",
+  "email": "string (email format)",
   "password": "string (min 8 chars)"
 }
 ```
@@ -30,7 +30,7 @@ Endpoint: POST /auth/login
 Body: 
 ```json
 {
-  "email": "string"
+  "email": "string",
   "password": "string"
 }
 ```
@@ -109,7 +109,7 @@ Endpoint: POST /images
 Body: 
 ```json
 {
-  "title": "string"
+  "title": "string",
   "image_base64": "string (base64)"
 }
 ```
