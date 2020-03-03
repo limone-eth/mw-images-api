@@ -21,11 +21,13 @@ Body:
 ```
 Response: users_id and token to authorize subsequent HTTP calls
 ```json
-authentication: {
-  "token": "string"
-},
-user: {
-  "id": "integer"
+{
+  "authentication": {
+    "token": "string"
+  },
+  "user": {
+    "id": "integer"
+  }
 }
 ```
 ___
@@ -42,11 +44,13 @@ Body:
 ```
 Response: users_id and token to authorize subsequent HTTP calls
 ```json
-authentication: {
-  "token": "string"
-},
-user: {
-  "id": "integer"
+{
+  "authentication": {
+    "token": "string"
+  },
+  "user": {
+    "id": "integer"
+  }
 }
 ```
 ___
