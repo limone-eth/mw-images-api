@@ -9,8 +9,8 @@ export class UserRoutes extends AbstractRoutes {
     initializeRoutes(): Route[] {
         return [
             new Route(MethodRoutes.GET, '/', {'v1': new GetAll()}, "user"),
+            new Route(MethodRoutes.GET, '/me', {'v1': new Me()}, "user"),
             new Route(MethodRoutes.GET, '/:id', {'v1': new GetById()}, "user"),
-            new Route(MethodRoutes.GET, '/me', {'v1': new Me()}, "user")
         ];
     }
 
