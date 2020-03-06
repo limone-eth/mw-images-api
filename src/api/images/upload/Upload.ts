@@ -16,7 +16,7 @@ export class Upload extends RequestController {
     validate?: Joi.JoiObject = Joi.object().keys({
         body: {
             title: Joi.string().required(),
-            image_base64: Joi.string().base64(),
+            image_base64: Joi.string(),
         }
     });
 
@@ -39,8 +39,10 @@ export class Upload extends RequestController {
         newImage.title = title;
         newImage.view = true;
         newImage.users_id = users_id;
+        newImage.image_base64 = image_base64;
         await newImage.save();
-        await fs.writeFile(userFolderPath + key + '.png', image_base64, 'base64', (err) => {
+        const toConvertBase64 = image_base64.substring(image_base64.indexOf(",") + 5);
+        await fs.writeFile(userFolderPath + key + '.png', toConvertBase64, 'base64', (err) => {
             if (err){
                 console.log(err);
                 throw new XError(Image.WRITING_IMAGE_ERROR,419, "Error writing image on disk");

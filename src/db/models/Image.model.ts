@@ -24,6 +24,9 @@ export class Image extends BaseEntity{
     @Column()
     view: boolean;
 
+    @Column()
+    image_base64: string;
+
     @ManyToOne(type => User, user => user.images)
     @JoinColumn({name: "users_id"})
     user: User;

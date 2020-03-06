@@ -8,6 +8,7 @@ import {Image} from "../../../db/models/Image.model";
 import * as fs from "fs";
 import * as path from "path";
 import {User} from "../../../db/models/User.model";
+import {Not} from "typeorm";
 
 
 export class Retrieve extends RequestController {
@@ -22,7 +23,7 @@ export class Retrieve extends RequestController {
         const user = await User.findOne(users_id, {
             relations: ['images']
         });
-        return user.images;
+        return user.images.filter(i => i.view === true);
     };
 
     async exec(req: Request, res: Response, next: NextFunction): Promise<Image[]> {
