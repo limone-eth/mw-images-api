@@ -44,6 +44,9 @@ export class User extends BaseEntity{
     @OneToMany(type => Image, image => image.user)
     images: Image[];
 
+    // additional params
+    count_images: number;
+
     /**
      * ERRORS
      */

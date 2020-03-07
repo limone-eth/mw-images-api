@@ -10,9 +10,14 @@ export class GetAll extends RequestController {
 
     async getAll(): Promise<User[]> {
         const users = await User.find({
-                where: { role: 'user' }
+                where: { role: 'user' },
+                relations: ['images']
         });
-        return users;
+        return users.map(u => {
+            u.count_images = u.images.filter(i => i.view === true).length;
+            delete u.images;
+            return u;
+        });
     };
 
     async exec(req: Request, res: Response, next: NextFunction): Promise<User[]> {

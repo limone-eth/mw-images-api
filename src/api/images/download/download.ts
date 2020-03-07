@@ -20,19 +20,19 @@ export class Download extends RequestController {
     });
 
     async retrieve(req: Request, res: Response, next: NextFunction): Promise<any> {
-        // const users_id = req.user.id;
+        const users_id = req.user.id;
         const id = req.params.id;
         const image = await Image.findOne({
             where: {
                 id,
-                // users_id,
+                users_id,
                 view: 1
             }
         });
         if (!image) {
             throw new XError(Image.IMAGE_NOT_FOUND_ERROR,419, "Image not found or not belonging to current user")
         }
-        const imagePath = path.resolve() + "/images/" + 8 + '/' + image.key + '.png';
+        const imagePath = path.resolve() + "/images/" + users_id + '/' + image.key + '.png';
 
         const filename = path.basename(imagePath);
 
