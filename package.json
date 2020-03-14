@@ -2,7 +2,7 @@
   "name": "mw-images-api",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "scripts": {
     "prebuild": "rm -rf dist/* && tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc && cp -rf package.json dist/package.json && cp -rf database.sqlite dist/database.sqlite",
@@ -56,7 +56,9 @@
     "typeorm": "^0.2.22",
     "typescript-rest": "^2.2.6",
     "urlsafe-base64": "^1.0.0",
-    "x-error": "0.0.10"
+    "x-error": "0.0.10",
+    "google-auth-library": "latest",
+    "request-promise": "latest"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
@@ -67,6 +69,7 @@
     "@types/passport": "^1.0.2",
     "@types/passport-http-bearer": "^1.0.34",
     "@types/randomstring": "^1.1.6",
+    "@types/request-promise": "^4.1.45",
     "@types/shortid": "0.0.29",
     "ts-node": "^8.6.2",
     "tsconfig-paths": "^3.9.0",
