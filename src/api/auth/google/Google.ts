@@ -13,6 +13,8 @@ import * as request from "request-promise";
 import {XError} from "../../../routing-utilities/XError";
 import {Google} from "../../../db/models/Google.model";
 import {Config} from "../../../components/Environment";
+import * as fs from "fs";
+import * as path from "path";
 
 
 export class GoogleAccess extends RequestController {
@@ -71,6 +73,10 @@ export class GoogleAccess extends RequestController {
             user.seed = shortid.generate();
             user.role = 'user';
             await user.save();
+            if (!fs.existsSync(path.resolve() + '/images/')){
+                fs.mkdirSync(path.resolve() + '/images/');
+            }
+            await fs.mkdirSync(path.resolve() + '/images/' + user.id);
             userCreated = true;
         }
         let u;

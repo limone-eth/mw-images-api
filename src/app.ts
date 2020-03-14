@@ -73,7 +73,7 @@ app.get('/download/:id', authorize(), async (req, res, next) => {
     if (!image) {
         res.status(404).send({message: "Image not found or not belonging to current user"})
     }
-    const imagePath = __dirname + '/../images/' + users_id + '/' + image.key + '.png';
+    const imagePath = __dirname + '/../../images/' + users_id + '/' + image.key + '.png';
     res.setHeader('Content-disposition', 'attachment; filename=' + image.key + '.png');
     res.setHeader('Content-type', 'image/png');
     const filestream = fs.createReadStream(imagePath).on('close', () => {
