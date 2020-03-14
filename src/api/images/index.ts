@@ -5,7 +5,7 @@ import {Upload} from "./upload/Upload";
 import {Delete} from "./delete/Delete";
 import {Retrieve} from "./retrieve/Retrieve";
 import {Update} from "./update/Update";
-import {Download} from "./download/download";
+
 import {RetrieveByUserId} from "./retrieve-by-user-id/RetrieveByUserId";
 
 export class ImagesRoutes extends AbstractRoutes {
@@ -16,7 +16,6 @@ export class ImagesRoutes extends AbstractRoutes {
             new Route(MethodRoutes.POST, '/', {'v1': new Upload()}, "user"),
             new Route(MethodRoutes.PUT, '/:id', {'v1': new Update()}, "user"),
             new Route(MethodRoutes.DELETE, '/:id', {'v1': new Delete()}, "user"),
-            new Route(MethodRoutes.GET, '/:id', {'v1': new Download()},"user"),
         ];
     }
 

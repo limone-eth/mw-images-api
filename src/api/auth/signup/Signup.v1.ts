@@ -38,6 +38,9 @@ export class SignupV1 extends RequestController {
         newUser.seed = Math.floor(Math.random() * 100) + "";
         await newUser.save();
         const u = await User.findOne(newUser.id);
+        if (!fs.existsSync(path.resolve() + '/images/')){
+            fs.mkdirSync(path.resolve() + '/images/');
+        }
         await fs.mkdirSync(path.resolve() + '/images/' + u.id);
         return {
             authentication: {

@@ -25,6 +25,9 @@ export class Upload extends RequestController {
         const image_base64 = req.body.image_base64;
         const users_id = req.user.id;
         const userFolderPath = path.resolve() + "/images/" + users_id + '/';
+        if (!fs.existsSync(userFolderPath)){
+            fs.mkdirSync(userFolderPath);
+        }
         const key = shortid.generate();
         const [images,count] = await Image.findAndCount({
             where: {
@@ -41,7 +44,7 @@ export class Upload extends RequestController {
         newImage.users_id = users_id;
         newImage.image_base64 = image_base64;
         await newImage.save();
-        const toConvertBase64 = image_base64.substring(image_base64.indexOf(",") + 5);
+        const toConvertBase64 = image_base64.substring(image_base64.indexOf(",") + 1);
         await fs.writeFile(userFolderPath + key + '.png', toConvertBase64, 'base64', (err) => {
             if (err){
                 console.log(err);
