@@ -1,13 +1,6 @@
 import {PassportComponent} from "../components/Passport"
 import * as express from "express";
 
-/**
- * WARNING: INCEPTION MODULE!
- *
- * This authentication module is specific for Tutored.
- * It takes passport authentication and wraps it with a specific callback handler
- * to correctly log and handle response types.
- */
 const passport = new PassportComponent();
 export class Authenticator {
 
