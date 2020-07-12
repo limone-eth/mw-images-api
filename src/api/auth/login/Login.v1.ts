@@ -24,7 +24,7 @@ export class LoginV1 extends RequestController {
                 role: 'user'
             }
         });
-        if (!user) throw new XError(User.INVALID_CREDENTIALS_ERROR, 403, "Invalid credentials");
+        if (!user) throw new XError(User.INVALID_CREDENTIALS_ERROR, 419, "Invalid credentials");
         const passwordMatch = await user.checkPwd(password);
         if (passwordMatch) {
             return {
@@ -36,6 +36,7 @@ export class LoginV1 extends RequestController {
                 }
             };
         } else {
+            console.log("password not matching");
             throw new XError(User.INVALID_CREDENTIALS_ERROR, 403, "Invalid credentials");
         }
 

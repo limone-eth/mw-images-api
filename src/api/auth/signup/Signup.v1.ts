@@ -31,6 +31,7 @@ export class SignupV1 extends RequestController {
         newUser.role = 'user';
         newUser.last_name = last_name;
         newUser.email = email;
+        console.log(password);
         const result = await bcrypt.hash(password, 10);
         newUser.password = result;
         newUser.revoked_tokens = 'null';

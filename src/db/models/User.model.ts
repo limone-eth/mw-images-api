@@ -59,17 +59,6 @@ export class User extends BaseEntity{
      * HOOKS
      */
 
-    @BeforeInsert()
-    async hashPassword() {
-        try {
-            const result = await bcrypt.hash(this.password, 10);
-            this.password = result;
-        } catch (err) {
-            console.log(err);
-            throw new XError(User.CRYPTING_ERROR, 419, "Crypting error")
-        }
-    }
-
     genToken(): string {
         return jwt.sign({
             email: this.email,
