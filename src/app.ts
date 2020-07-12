@@ -12,10 +12,13 @@ import {Authenticator} from "./middlewares/Authenticator";
 import cors from "cors";
 
 import {NextFunction, Request, Response} from "express";
-import {Route} from "./routing-utilities/Route";
 import * as fs from "fs";
 
-connect(); // initialize DB Connection
+connect().then(() => {
+    console.log('DB CONNECTED');
+}).catch((err) => {
+    console.log(err);
+}); // initialize DB Connection
 
 
 const passport = new PassportComponent();
