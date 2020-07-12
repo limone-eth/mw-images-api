@@ -1,4 +1,7 @@
 import {createConnection} from "typeorm";
+import {User} from "./models/User.model";
+import {Google} from "./models/Google.model";
+import {Image} from "./models/Image.model";
 
 export let connect = async () => {
     const connection = await createConnection({
@@ -9,7 +12,7 @@ export let connect = async () => {
         "logging": true,
         "migrationsTableName": "custom_migration_table",
         "entities": [
-            "src/db/models/*.ts"
+            User, Google, Image
         ],
         "migrations": [
             "src/db/migration/*.ts"
