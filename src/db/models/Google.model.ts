@@ -40,7 +40,7 @@ export class Google extends BaseEntity{
     typ: string;
 
 
-    static readonly GET_TOKEN_FROM_CODE_ERROR = new CustomError(23, 'get_token_from_code_error');
-    static readonly GET_USER_INFO_FROM_GOOGLE_ERROR = new CustomError(24, 'get_user_info_from_google_error');
+    static readonly GET_TOKEN_FROM_CODE_ERROR = new CustomError(9, 'get_token_from_code_error');
+    static readonly GET_USER_INFO_FROM_GOOGLE_ERROR = new CustomError(10, 'get_user_info_from_google_error');
 
 }
