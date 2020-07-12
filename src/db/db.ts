@@ -19,4 +19,7 @@ export let connect = async () => {
             "migrationsDir": "src/db/migration"
         }
     });
+    connection.driver.afterConnect().then(()=>{
+        console.log('connected..')
+    });
 };
