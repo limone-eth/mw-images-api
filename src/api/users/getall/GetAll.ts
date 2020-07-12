@@ -14,6 +14,7 @@ export class GetAll extends RequestController {
                 relations: ['images']
         });
         return users.map(u => {
+            u = u.secureUser();
             u.count_images = u.images.filter(i => i.view === true).length;
             delete u.images;
             return u;

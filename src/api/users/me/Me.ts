@@ -18,7 +18,7 @@ export class Me extends RequestController {
                 role: 'user'
             }
         });
-        return user;
+        return user.secureUser();
     };
 
     async exec(req: Request, res: Response, next: NextFunction): Promise<User> {
